@@ -1,5 +1,5 @@
-<header class="bg-[#0C1626] text-[#F5F0EB] sticky top-0 z-40 border-b border-[#D4B07B]/30 shadow-md">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+<header class="gifty-header">
+  <div class="gifty-header-container">
     <!-- Mobile Menu Toggle -->
     <button type="button" class="md:hidden text-[#D4B07B] p-2" data-mobile-menu-toggle aria-label="Toggle menu">
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
@@ -7,9 +7,9 @@
 
     <!-- Brand Logo -->
     <div class="flex items-center space-x-3">
-      <a href="{{ routes.root_url }}" class="flex items-center space-x-2 text-2xl font-serif font-bold text-[#D4B07B] tracking-wide">
+      <a href="{{ routes.root_url }}" class="gifty-logo">
         {%- if section.settings.logo != blank -%}
-          <img src="{{ section.settings.logo | image_url: width: 150 }}" alt="{{ shop.name }}" class="h-10 w-auto">
+          <img src="{{ section.settings.logo | image_url: width: 150 }}" alt="{{ shop.name }}" style="height: 40px; width: auto;">
         {%- else -%}
           <span>{{ section.settings.logo_text | default: "Gifty.in" }}</span>
         {%- endif -%}
@@ -17,27 +17,27 @@
     </div>
 
     <!-- Desktop Nav Links -->
-    <nav class="hidden md:flex items-center space-x-8 text-sm font-medium tracking-wide">
+    <nav class="gifty-nav hidden md:flex">
       {%- for link in section.settings.menu.links -%}
-        <a href="{{ link.url }}" class="hover:text-[#D4B07B] transition {% if link.active %}text-[#D4B07B] border-b-2 border-[#D4B07B] pb-1{% endif %}">{{ link.title }}</a>
+        <a href="{{ link.url }}">{{ link.title }}</a>
       {%- endfor -%}
-      <a href="/collections/all" class="hover:text-[#D4B07B] transition">All Gifts</a>
-      <a href="/collections/bangles" class="hover:text-[#D4B07B] transition">Bangles</a>
-      <a href="/collections/hampers" class="hover:text-[#D4B07B] transition">Gift Hampers</a>
-      <a href="/pages/contact" class="hover:text-[#D4B07B] transition">Contact Us</a>
+      <a href="/collections/all">All Gifts</a>
+      <a href="/collections/bangles">Bangles</a>
+      <a href="/collections/hampers">Gift Hampers</a>
+      <a href="/pages/contact">Contact Us</a>
     </nav>
 
     <!-- Actions (Search, Account, Cart) -->
-    <div class="flex items-center space-x-5">
-      <a href="{{ routes.search_url }}" class="text-[#F5F0EB] hover:text-[#D4B07B] transition" aria-label="Search">
+    <div class="gifty-header-actions">
+      <a href="{{ routes.search_url }}" aria-label="Search">
         {% render 'icon-search' %}
       </a>
-      <a href="{{ routes.account_login_url }}" class="hidden sm:block text-[#F5F0EB] hover:text-[#D4B07B] transition" aria-label="Account">
+      <a href="{{ routes.account_login_url }}" class="hidden sm:block" aria-label="Account">
         {% render 'icon-account' %}
       </a>
-      <a href="{{ routes.cart_url }}" class="relative text-[#F5F0EB] hover:text-[#D4B07B] transition flex items-center" data-cart-toggle aria-label="Cart">
+      <a href="{{ routes.cart_url }}" class="relative flex items-center" data-cart-toggle aria-label="Cart">
         {% render 'icon-cart' %}
-        <span class="absolute -top-2 -right-2 bg-[#D4B07B] text-[#0C1626] text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow">
+        <span style="position: absolute; top: -8px; right: -8px; background: #D4B07B; color: #0C1626; font-size: 10px; font-weight: bold; width: 20px; height: 20px; border-radius: 9999px; display: flex; align-items: center; justify-content: center;">
           {{ cart.item_count | default: 2 }}
         </span>
       </a>

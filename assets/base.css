@@ -1,5 +1,5 @@
 /*
-  Gifty.in Shopify Theme - Base CSS
+  Gifty.in Shopify Theme - Base CSS (Production Standard)
   Design System: Deep Midnight Navy (#0C1626), Champagne Gold (#D4B07B), Warm Soft White (#FBFBF9)
 */
 
@@ -33,6 +33,28 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   margin-top: 0;
+  color: var(--color-primary-bg);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Skip link */
+.skip-to-content-link {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+.skip-to-content-link:focus {
+  top: 10px;
+  left: 10px;
+  background: var(--color-accent-gold);
+  color: var(--color-primary-bg);
+  padding: 8px 16px;
+  z-index: 100;
+  border-radius: 4px;
 }
 
 /* Card Styling */
@@ -41,6 +63,7 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: var(--radius-card);
   box-shadow: var(--shadow-card);
   overflow: hidden;
+  border: 1px solid var(--color-border);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -53,7 +76,7 @@ h1, h2, h3, h4, h5, h6 {
 .gifty-badge {
   display: inline-flex;
   align-items: center;
-  padding: 4px 10px;
+  padding: 4px 12px;
   font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
@@ -70,7 +93,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Buttons */
-.btn-primary {
+.btn-primary, .gifty-btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -83,14 +106,16 @@ h1, h2, h3, h4, h5, h6 {
   text-decoration: none;
   cursor: pointer;
   transition: all 0.2s ease;
+  width: 100%;
+  text-align: center;
 }
 
-.btn-primary:hover {
+.btn-primary:hover, .gifty-btn-primary:hover {
   background-color: #172946;
   box-shadow: 0 4px 12px rgba(212, 176, 123, 0.2);
 }
 
-.btn-secondary {
+.btn-secondary, .gifty-btn-secondary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -103,10 +128,131 @@ h1, h2, h3, h4, h5, h6 {
   text-decoration: none;
   cursor: pointer;
   transition: all 0.2s ease;
+  width: 100%;
+  text-align: center;
 }
 
-.btn-secondary:hover {
+.btn-secondary:hover, .gifty-btn-secondary:hover {
   background-color: #C39F69;
+}
+
+/* Header & Navigation Styles */
+.gifty-header {
+  background-color: #0C1626;
+  color: #F5F0EB;
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  border-bottom: 1px solid rgba(212, 176, 123, 0.3);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.gifty-header-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.gifty-logo {
+  font-family: var(--font-heading);
+  font-size: 28px;
+  font-weight: bold;
+  color: #D4B07B;
+  letter-spacing: 0.02em;
+}
+
+.gifty-nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.gifty-nav a {
+  color: #F5F0EB;
+  transition: color 0.2s ease;
+}
+
+.gifty-nav a:hover {
+  color: #D4B07B;
+}
+
+.gifty-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Footer Styles */
+.gifty-footer {
+  background-color: #0C1626;
+  color: #F5F0EB;
+  padding: 64px 24px 48px 24px;
+  border-top: 1px solid rgba(212, 176, 123, 0.3);
+}
+
+.gifty-footer-grid {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 40px;
+  margin-bottom: 48px;
+}
+
+.gifty-footer h4 {
+  font-family: var(--font-heading);
+  color: #D4B07B;
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+.gifty-footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.gifty-footer ul li {
+  margin-bottom: 10px;
+}
+
+.gifty-footer ul li a {
+  color: rgba(245, 240, 235, 0.8);
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+
+.gifty-footer ul li a:hover {
+  color: #D4B07B;
+}
+
+.gifty-footer-bottom {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-top: 24px;
+  border-top: 1px solid rgba(212, 176, 123, 0.2);
+  text-align: center;
+  font-size: 12px;
+  color: rgba(245, 240, 235, 0.6);
+}
+
+/* Grids & Containers */
+.gifty-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 64px 24px;
+}
+
+.gifty-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
 }
 
 /* Marquee Animation */
