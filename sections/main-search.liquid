@@ -1,0 +1,16 @@
+<div class="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+  <div class="text-center max-w-xl mx-auto mb-10">
+    <h1 class="text-3xl sm:text-4xl font-serif font-bold text-[#0C1626] mb-6">Search Our Store</h1>
+    <form action="{{ routes.search_url }}" method="get" class="flex gap-2">
+      <input type="text" name="q" value="{{ search.terms | escape }}" placeholder="Search bangles, gifts, hampers..." class="flex-1 px-4 py-3 rounded-full border border-gray-300 focus:outline-none focus:border-[#0C1626] text-sm">
+      <button type="submit" class="btn-primary px-6">Search</button>
+    </form>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Search results",
+  "settings": []
+}
+{% schema %}
