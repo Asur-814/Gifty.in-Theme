@@ -1,12 +1,12 @@
 <div class="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
   <div class="text-center mb-12">
-    <span class="gifty-badge mb-3">Got Questions?</span>
+    <span class="gifty-badge mb-3">{{ section.settings.badge_text | default: "Got Questions?" }}</span>
     <h2 class="text-3xl sm:text-4xl font-serif text-[#0C1626] font-bold">{{ section.settings.title | default: "Frequently Asked Questions" }}</h2>
   </div>
 
   <div class="space-y-4">
     {%- for block in section.blocks -%}
-      <details class="gifty-card p-6 group">
+      <details class="gifty-card p-6 group" {{ block.shopify_attributes }}>
         <summary class="font-serif font-bold text-lg text-[#0C1626] cursor-pointer flex justify-between items-center list-none">
           <span>{{ block.settings.question }}</span>
           <span class="text-[#D4B07B] transform group-open:rotate-180 transition duration-300 font-sans text-xl">+</span>
@@ -62,6 +62,12 @@
 {
   "name": "Collapsible FAQ",
   "settings": [
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge Text",
+      "default": "Got Questions?"
+    },
     {
       "type": "text",
       "id": "title",

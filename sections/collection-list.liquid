@@ -1,13 +1,13 @@
 <div class="py-16 bg-white border-y border-[#E5E0D8]">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center max-w-2xl mx-auto mb-12">
-      <span class="gifty-badge mb-3">Explore Categories</span>
+      <span class="gifty-badge mb-3">{{ section.settings.badge_text | default: "Explore Categories" }}</span>
       <h2 class="text-3xl sm:text-4xl font-serif text-[#0C1626] font-bold">{{ section.settings.title | default: "Shop by Category" }}</h2>
     </div>
 
     <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
       {%- for block in section.blocks -%}
-        <a href="{{ block.settings.collection.url | default: '#' }}" class="group gifty-card p-4 text-center block">
+        <a href="{{ block.settings.collection.url | default: '#' }}" class="group gifty-card p-4 text-center block" {{ block.shopify_attributes }}>
           <div class="aspect-square rounded-[12px] overflow-hidden mb-4 bg-gray-100">
             <img src="{{ block.settings.image | image_url: width: 400 | default: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=500&auto=format&fit=crop&q=80' }}" alt="{{ block.settings.title }}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
           </div>
@@ -64,6 +64,12 @@
 {
   "name": "Collection list",
   "settings": [
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge Text",
+      "default": "Explore Categories"
+    },
     {
       "type": "text",
       "id": "title",

@@ -1,6 +1,6 @@
 <div class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
   <div class="text-center max-w-2xl mx-auto mb-12">
-    <span class="gifty-badge mb-3">Trending in India</span>
+    <span class="gifty-badge mb-3">{{ section.settings.badge_text | default: "Trending in India" }}</span>
     <h2 class="text-3xl sm:text-4xl font-serif text-[#0C1626] font-bold">{{ section.settings.title | default: "Our Viral Collection" }}</h2>
     <p class="mt-3 text-gray-600">{{ section.settings.description | default: "Handcrafted luxury gifts and stunning accessories loved by 50,000+ happy customers." }}</p>
   </div>
@@ -21,7 +21,7 @@
   </div>
 
   <div class="text-center mt-12">
-    <a href="{{ collection.url | default: '/collections/all' }}" class="btn-primary">View All Collection</a>
+    <a href="{{ collection.url | default: '/collections/all' }}" class="btn-primary">{{ section.settings.button_text | default: "View All Collection" }}</a>
   </div>
 </div>
 
@@ -29,6 +29,12 @@
 {
   "name": "Featured collection",
   "settings": [
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge Text",
+      "default": "Trending in India"
+    },
     {
       "type": "text",
       "id": "title",
@@ -54,6 +60,12 @@
       "step": 2,
       "default": 4,
       "label": "Maximum products to show"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "View All Collection"
     }
   ],
   "presets": [

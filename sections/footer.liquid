@@ -2,20 +2,26 @@
   <div class="gifty-footer-grid">
     <!-- Brand Column -->
     <div class="space-y-4">
-      <h3 style="font-family: var(--font-heading); color: #D4B07B; font-size: 24px; margin-bottom: 12px;">Gifty.in</h3>
+      <h3 style="font-family: var(--font-heading); color: #D4B07B; font-size: 24px; margin-bottom: 12px;">{{ section.settings.brand_name | default: "Gifty.in" }}</h3>
       <p style="font-size: 14px; color: rgba(245,240,235,0.8); line-height: 1.6;">
-        India's premier destination for handcrafted luxury gifts, stunning fashion accessories, and personalized hampers. Dispatch within 24 hours.
+        {{ section.settings.brand_bio | default: "India's premier destination for handcrafted luxury gifts, stunning fashion accessories, and personalized hampers. Dispatch within 24 hours." }}
       </p>
       <div style="display: flex; gap: 16px; margin-top: 12px;">
-        <a href="https://instagram.com" target="_blank" style="color: #D4B07B;">Instagram</a>
-        <a href="https://facebook.com" target="_blank" style="color: #D4B07B;">Facebook</a>
-        <a href="https://whatsapp.com" target="_blank" style="color: #D4B07B;">WhatsApp</a>
+        {%- if section.settings.instagram_url != blank -%}
+          <a href="{{ section.settings.instagram_url }}" target="_blank" style="color: #D4B07B;">Instagram</a>
+        {%- endif -%}
+        {%- if section.settings.facebook_url != blank -%}
+          <a href="{{ section.settings.facebook_url }}" target="_blank" style="color: #D4B07B;">Facebook</a>
+        {%- endif -%}
+        {%- if section.settings.whatsapp_url != blank -%}
+          <a href="{{ section.settings.whatsapp_url }}" target="_blank" style="color: #D4B07B;">WhatsApp</a>
+        {%- endif -%}
       </div>
     </div>
 
     <!-- Quick Links -->
     <div>
-      <h4>Connect With Us</h4>
+      <h4>{{ section.settings.menu_1_title | default: "Connect With Us" }}</h4>
       <ul>
         <li><a href="https://wa.me/917390802311">WhatsApp Support</a></li>
         <li><a href="/pages/contact">Contact Form</a></li>
@@ -25,7 +31,7 @@
 
     <!-- Order Support -->
     <div>
-      <h4>Order Support</h4>
+      <h4>{{ section.settings.menu_2_title | default: "Order Support" }}</h4>
       <ul>
         <li><a href="/pages/track-order">Track Your Order</a></li>
         <li><a href="/pages/returns">Return / Exchange Policy</a></li>
@@ -37,23 +43,92 @@
 
     <!-- Newsletter -->
     <div>
-      <h4>Join Gifty Club</h4>
-      <p style="font-size: 14px; color: rgba(245,240,235,0.8); margin-bottom: 16px;">Subscribe to receive exclusive festive discounts, secret voucher codes, and first access.</p>
+      <h4>{{ section.settings.newsletter_title | default: "Join Gifty Club" }}</h4>
+      <p style="font-size: 14px; color: rgba(245,240,235,0.8); margin-bottom: 16px;">{{ section.settings.newsletter_subtitle | default: "Subscribe to receive exclusive festive discounts, secret voucher codes, and first access." }}</p>
       <form style="display: flex; flex-direction: column; gap: 10px;">
         <input type="email" placeholder="Enter your email address" style="width: 100%; padding: 12px 16px; border-radius: 9999px; background: #172946; border: 1px solid rgba(212,176,123,0.4); color: #F5F0EB; font-size: 14px;">
-        <button type="submit" class="btn-secondary" style="padding: 10px;">Subscribe & Get 10% Off</button>
+        <button type="submit" class="btn-secondary" style="padding: 10px;">{{ section.settings.newsletter_btn_text | default: "Subscribe & Get 10% Off" }}</button>
       </form>
     </div>
   </div>
 
   <div class="gifty-footer-bottom">
-    <p>&copy; {{ 'now' | date: '%Y' }} GIFTY.IN. ALL RIGHTS RESERVED. DESIGNED FOR LUXURY GIFTING ACROSS INDIA.</p>
+    <p>{{ section.settings.copyright_text | default: "© 2026 GIFTY.IN. ALL RIGHTS RESERVED. DESIGNED FOR LUXURY GIFTING ACROSS INDIA." }}</p>
   </div>
 </footer>
 
 {% schema %}
 {
   "name": "Footer",
-  "settings": []
+  "settings": [
+    {
+      "type": "text",
+      "id": "brand_name",
+      "label": "Brand Name",
+      "default": "Gifty.in"
+    },
+    {
+      "type": "textarea",
+      "id": "brand_bio",
+      "label": "Brand Bio",
+      "default": "India's premier destination for handcrafted luxury gifts, stunning fashion accessories, and personalized hampers. Dispatch within 24 hours."
+    },
+    {
+      "type": "url",
+      "id": "instagram_url",
+      "label": "Instagram URL"
+    },
+    {
+      "type": "url",
+      "id": "facebook_url",
+      "label": "Facebook URL"
+    },
+    {
+      "type": "url",
+      "id": "whatsapp_url",
+      "label": "WhatsApp URL"
+    },
+    {
+      "type": "text",
+      "id": "menu_1_title",
+      "label": "Menu 1 Title",
+      "default": "Connect With Us"
+    },
+    {
+      "type": "text",
+      "id": "menu_2_title",
+      "label": "Menu 2 Title",
+      "default": "Order Support"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_title",
+      "label": "Newsletter Title",
+      "default": "Join Gifty Club"
+    },
+    {
+      "type": "textarea",
+      "id": "newsletter_subtitle",
+      "label": "Newsletter Subtitle",
+      "default": "Subscribe to receive exclusive festive discounts, secret voucher codes, and first access."
+    },
+    {
+      "type": "text",
+      "id": "newsletter_btn_text",
+      "label": "Newsletter Button Text",
+      "default": "Subscribe & Get 10% Off"
+    },
+    {
+      "type": "text",
+      "id": "copyright_text",
+      "label": "Copyright Text",
+      "default": "© 2026 GIFTY.IN. ALL RIGHTS RESERVED."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Footer"
+    }
+  ]
 }
 {% endschema %}
