@@ -5,8 +5,6 @@
   </div>
 
   <div class="space-y-4">
-    {%- assign default_faqs = "Why Choose Us?|We handcraft and curate the finest Indian gifts and accessories with strict quality checks and 24-hour dispatch.,Why Prepaid Orders?|Prepaid orders enjoy priority dispatch, free surprise luxury gifts, and insured safe transit across India.,Shipping & Delivery Times|We dispatch all orders within 24 hours. Delivery typically takes 2-5 business days across major Indian cities and pin codes.,Returns & Exchanges|We offer hassle-free 7-day returns and exchanges for damaged or incorrect items upon unboxing video proof." | split: "," -%}
-    
     {%- for block in section.blocks -%}
       <details class="gifty-card p-6 group">
         <summary class="font-serif font-bold text-lg text-[#0C1626] cursor-pointer flex justify-between items-center list-none">
@@ -103,4 +101,4 @@
     }
   ]
 }
-{% schema %}
+{% endschema %}
