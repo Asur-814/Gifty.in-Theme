@@ -1,0 +1,106 @@
+<div class="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+  <div class="text-center mb-12">
+    <span class="gifty-badge mb-3">Got Questions?</span>
+    <h2 class="text-3xl sm:text-4xl font-serif text-[#0C1626] font-bold">{{ section.settings.title | default: "Frequently Asked Questions" }}</h2>
+  </div>
+
+  <div class="space-y-4">
+    {%- assign default_faqs = "Why Choose Us?|We handcraft and curate the finest Indian gifts and accessories with strict quality checks and 24-hour dispatch.,Why Prepaid Orders?|Prepaid orders enjoy priority dispatch, free surprise luxury gifts, and insured safe transit across India.,Shipping & Delivery Times|We dispatch all orders within 24 hours. Delivery typically takes 2-5 business days across major Indian cities and pin codes.,Returns & Exchanges|We offer hassle-free 7-day returns and exchanges for damaged or incorrect items upon unboxing video proof." | split: "," -%}
+    
+    {%- for block in section.blocks -%}
+      <details class="gifty-card p-6 group">
+        <summary class="font-serif font-bold text-lg text-[#0C1626] cursor-pointer flex justify-between items-center list-none">
+          <span>{{ block.settings.question }}</span>
+          <span class="text-[#D4B07B] transform group-open:rotate-180 transition duration-300 font-sans text-xl">+</span>
+        </summary>
+        <p class="mt-4 text-gray-600 leading-relaxed text-sm sm:text-base border-t border-[#E5E0D8] pt-4">
+          {{ block.settings.answer }}
+        </p>
+      </details>
+    {%- endfor -%}
+
+    {%- if section.blocks.size == 0 -%}
+      <details class="gifty-card p-6 group">
+        <summary class="font-serif font-bold text-lg text-[#0C1626] cursor-pointer flex justify-between items-center list-none">
+          <span>Why Choose Gifty.in?</span>
+          <span class="text-[#D4B07B] transform group-open:rotate-180 transition duration-300 font-sans text-xl">+</span>
+        </summary>
+        <p class="mt-4 text-gray-600 leading-relaxed text-sm sm:text-base border-t border-[#E5E0D8] pt-4">
+          We handcraft and curate premium Indian gifts and luxury accessories with meticulous quality checks, premium packaging, and fast pan-India delivery.
+        </p>
+      </details>
+      <details class="gifty-card p-6 group">
+        <summary class="font-serif font-bold text-lg text-[#0C1626] cursor-pointer flex justify-between items-center list-none">
+          <span>Why should I choose prepaid orders?</span>
+          <span class="text-[#D4B07B] transform group-open:rotate-180 transition duration-300 font-sans text-xl">+</span>
+        </summary>
+        <p class="mt-4 text-gray-600 leading-relaxed text-sm sm:text-base border-t border-[#E5E0D8] pt-4">
+          Prepaid orders enjoy priority dispatch within 24 hours, free mystery gift items included in the box, and zero COD handling fees.
+        </p>
+      </details>
+      <details class="gifty-card p-6 group">
+        <summary class="font-serif font-bold text-lg text-[#0C1626] cursor-pointer flex justify-between items-center list-none">
+          <span>What are the shipping and delivery times?</span>
+          <span class="text-[#D4B07B] transform group-open:rotate-180 transition duration-300 font-sans text-xl">+</span>
+        </summary>
+        <p class="mt-4 text-gray-600 leading-relaxed text-sm sm:text-base border-t border-[#E5E0D8] pt-4">
+          All orders are dispatched from our warehouse within 24 hours. Standard delivery takes 2 to 5 business days across India.
+        </p>
+      </details>
+      <details class="gifty-card p-6 group">
+        <summary class="font-serif font-bold text-lg text-[#0C1626] cursor-pointer flex justify-between items-center list-none">
+          <span>What is your return and exchange policy?</span>
+          <span class="text-[#D4B07B] transform group-open:rotate-180 transition duration-300 font-sans text-xl">+</span>
+        </summary>
+        <p class="mt-4 text-gray-600 leading-relaxed text-sm sm:text-base border-t border-[#E5E0D8] pt-4">
+          We offer 7-day hassle-free replacements for transit damage or defects backed by a clear unboxing video.
+        </p>
+      </details>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Collapsible FAQ",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Frequently Asked Questions"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "Why Choose Us?"
+        },
+        {
+          "type": "textarea",
+          "id": "answer",
+          "label": "Answer",
+          "default": "We provide premium quality gifts with fast 24-hour dispatch across India."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collapsible FAQ",
+      "blocks": [
+        { "settings": { "question": "Why Choose Gifty.in?", "answer": "We handcraft and curate premium Indian gifts and luxury accessories..." } },
+        { "settings": { "question": "Why choose prepaid orders?", "answer": "Prepaid orders enjoy priority dispatch and free surprise gifts." } },
+        { "settings": { "question": "Shipping & Delivery times", "answer": "Dispatch within 24 hours. Delivery takes 2-5 business days." } },
+        { "settings": { "question": "Returns & Exchanges", "answer": "Hassle-free 7-day returns for damaged or incorrect items." } }
+      ]
+    }
+  ]
+}
+{% schema %}

@@ -1,0 +1,12 @@
+<div class="price">
+  {%- if product.price_varies -%}
+    <span class="text-lg font-bold text-[#0C1626]">From {{ product.price_min | money }}</span>
+  {%- elsif product.compare_at_price > product.price -%}
+    <div class="flex items-center space-x-2">
+      <span class="text-lg font-bold text-[#0C1626]">{{ product.price | money }}</span>
+      <span class="text-sm text-gray-400 line-through">{{ product.compare_at_price | money }}</span>
+    </div>
+  {%- else -%}
+    <span class="text-lg font-bold text-[#0C1626]">{{ product.price | money | default: "₹1,499" }}</span>
+  {%- endif -%}
+</div>

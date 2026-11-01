@@ -1,0 +1,110 @@
+<div class="py-16 bg-white border-y border-[#E5E0D8]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <span class="gifty-badge mb-3">Explore Categories</span>
+      <h2 class="text-3xl sm:text-4xl font-serif text-[#0C1626] font-bold">{{ section.settings.title | default: "Shop by Category" }}</h2>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      {%- for block in section.blocks -%}
+        <a href="{{ block.settings.collection.url | default: '#' }}" class="group gifty-card p-4 text-center block">
+          <div class="aspect-square rounded-[12px] overflow-hidden mb-4 bg-gray-100">
+            <img src="{{ block.settings.image | image_url: width: 400 | default: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=500&auto=format&fit=crop&q=80' }}" alt="{{ block.settings.title }}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+          </div>
+          <h3 class="font-serif font-bold text-lg text-[#0C1626] group-hover:text-[#D4B07B] transition flex items-center justify-center space-x-2">
+            <span>{{ block.settings.title }}</span>
+            <span class="text-[#D4B07B]">&rarr;</span>
+          </h3>
+        </a>
+      {%- endfor -%}
+      {%- if section.blocks.size == 0 -%}
+        <!-- Fallback Demo Categories -->
+        <a href="/collections/bangles" class="group gifty-card p-4 text-center block">
+          <div class="aspect-square rounded-[12px] overflow-hidden mb-4 bg-gray-100">
+            <img src="https://images.unsplash.com/photo-1611591475571-124b616b6c4b?w=500&auto=format&fit=crop&q=80" alt="Bangles" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+          </div>
+          <h3 class="font-serif font-bold text-lg text-[#0C1626] group-hover:text-[#D4B07B] transition flex items-center justify-center space-x-2">
+            <span>Bangles</span>
+            <span>&rarr;</span>
+          </h3>
+        </a>
+        <a href="/collections/earrings" class="group gifty-card p-4 text-center block">
+          <div class="aspect-square rounded-[12px] overflow-hidden mb-4 bg-gray-100">
+            <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=500&auto=format&fit=crop&q=80" alt="Earrings" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+          </div>
+          <h3 class="font-serif font-bold text-lg text-[#0C1626] group-hover:text-[#D4B07B] transition flex items-center justify-center space-x-2">
+            <span>Earrings</span>
+            <span>&rarr;</span>
+          </h3>
+        </a>
+        <a href="/collections/hampers" class="group gifty-card p-4 text-center block">
+          <div class="aspect-square rounded-[12px] overflow-hidden mb-4 bg-gray-100">
+            <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=500&auto=format&fit=crop&q=80" alt="Hampers" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+          </div>
+          <h3 class="font-serif font-bold text-lg text-[#0C1626] group-hover:text-[#D4B07B] transition flex items-center justify-center space-x-2">
+            <span>Hampers</span>
+            <span>&rarr;</span>
+          </h3>
+        </a>
+        <a href="/collections/personalized" class="group gifty-card p-4 text-center block">
+          <div class="aspect-square rounded-[12px] overflow-hidden mb-4 bg-gray-100">
+            <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=500&auto=format&fit=crop&q=80" alt="Personalized" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+          </div>
+          <h3 class="font-serif font-bold text-lg text-[#0C1626] group-hover:text-[#D4B07B] transition flex items-center justify-center space-x-2">
+            <span>Personalized</span>
+            <span>&rarr;</span>
+          </h3>
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Collection list",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Shop by Category"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "featured_collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Bangles"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection list",
+      "blocks": [
+        { "settings": { "title": "Bangles" } },
+        { "settings": { "title": "Earrings" } },
+        { "settings": { "title": "Hampers" } },
+        { "settings": { "title": "Personalized" } }
+      ]
+    }
+  ]
+}
+{% schema %}

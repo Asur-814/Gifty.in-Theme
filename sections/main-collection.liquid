@@ -1,0 +1,60 @@
+<div class="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+  <div class="bg-[#0C1626] text-[#F5F0EB] rounded-[24px] p-8 sm:p-12 mb-12 relative overflow-hidden">
+    <div class="max-w-xl relative z-10">
+      <span class="gifty-badge mb-3">Gifty.in Collection</span>
+      <h1 class="text-3xl sm:text-5xl font-serif font-bold text-[#D4B07B] mb-4">{{ collection.title | default: "All Gifts & Accessories" }}</h1>
+      <p class="text-[#F5F0EB]/80 text-sm sm:text-base leading-relaxed">{{ collection.description | default: "Discover handpicked gifts, luxury bangles, earrings, and personalized hampers designed for every Indian celebration." }}</p>
+    </div>
+  </div>
+
+  <div class="flex flex-col md:flex-row gap-8">
+    <!-- Sidebar Filters -->
+    <div class="w-full md:w-64 space-y-6">
+      <div class="gifty-card p-6">
+        <h3 class="font-serif font-bold text-lg text-[#0C1626] mb-4 border-b border-[#E5E0D8] pb-2">Filter By</h3>
+        <div class="space-y-4 text-sm text-gray-700">
+          <div>
+            <h4 class="font-semibold mb-2">Category</h4>
+            <div class="space-y-1.5 pl-2">
+              <label class="flex items-center space-x-2 cursor-pointer"><input type="checkbox" class="rounded text-[#0C1626]"> <span>Bangles (24)</span></label>
+              <label class="flex items-center space-x-2 cursor-pointer"><input type="checkbox" class="rounded text-[#0C1626]"> <span>Earrings (18)</span></label>
+              <label class="flex items-center space-x-2 cursor-pointer"><input type="checkbox" class="rounded text-[#0C1626]"> <span>Gift Hampers (12)</span></label>
+            </div>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-2">Price</h4>
+            <div class="space-y-1.5 pl-2">
+              <label class="flex items-center space-x-2 cursor-pointer"><input type="checkbox" class="rounded text-[#0C1626]"> <span>Under ₹999</span></label>
+              <label class="flex items-center space-x-2 cursor-pointer"><input type="checkbox" class="rounded text-[#0C1626]"> <span>₹999 - ₹1,999</span></label>
+              <label class="flex items-center space-x-2 cursor-pointer"><input type="checkbox" class="rounded text-[#0C1626]"> <span>Above ₹1,999</span></label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="flex-1">
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+        {%- for product in collection.products -%}
+          {% render 'card-product', product: product %}
+        {%- endfor -%}
+        {%- if collection.products.size == 0 or collection == blank -%}
+          {% render 'card-product', demo_title: "Royal Kundan Bangles Set", demo_price: "₹1,499", demo_compare: "₹2,999", demo_image: "https://images.unsplash.com/photo-1611591475571-124b616b6c4b?w=600&auto=format&fit=crop&q=80", demo_badge: "Dispatch within 24h" %}
+          {% render 'card-product', demo_title: "Personalized Rose Gold Couple Watch", demo_price: "₹2,299", demo_compare: "₹4,599", demo_image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600&auto=format&fit=crop&q=80", demo_badge: "Best Seller" %}
+          {% render 'card-product', demo_title: "Luxury Velvet Gift Hamper Box", demo_price: "₹1,899", demo_compare: "₹3,499", demo_image: "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=600&auto=format&fit=crop&q=80", demo_badge: "Free Gift" %}
+          {% render 'card-product', demo_title: "Zircon Diamond Solitaire Necklace", demo_price: "₹1,199", demo_compare: "₹2,499", demo_image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&auto=format&fit=crop&q=80", demo_badge: "Dispatch within 24h" %}
+          {% render 'card-product', demo_title: "Traditional Meenakari Jhumka Earrings", demo_price: "₹799", demo_compare: "₹1,599", demo_image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&auto=format&fit=crop&q=80", demo_badge: "Trending" %}
+          {% render 'card-product', demo_title: "Customized Photo Frame LED Lamp", demo_price: "₹1,299", demo_compare: "₹2,599", demo_image: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=600&auto=format&fit=crop&q=80", demo_badge: "Best Seller" %}
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Main collection",
+  "settings": []
+}
+{% schema %}

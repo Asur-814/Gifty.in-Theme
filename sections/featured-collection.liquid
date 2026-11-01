@@ -1,0 +1,115 @@
+<div class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+  <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+    <div>
+      <span class="gifty-badge mb-3">Trending in India</span>
+      <h2 class="text-3xl sm:text-4xl font-serif text-[#0C1626] font-bold">{{ section.settings.title | default: "Our Viral Collection" }}</h2>
+      <p class="mt-2 text-gray-600">{{ section.settings.description | default: "Handcrafted luxury gifts and stunning accessories loved by 50,000+ happy customers." }}</p>
+    </div>
+    <!-- Slider Navigation Controls -->
+    <div class="flex items-center space-x-3 mt-6 md:mt-0">
+      <button type="button" class="p-3 rounded-full border border-[#0C1626] text-[#0C1626] hover:bg-[#0C1626] hover:text-[#D4B07B] transition scroll-left-btn" aria-label="Previous products">
+        &larr;
+      </button>
+      <button type="button" class="p-3 rounded-full border border-[#0C1626] text-[#0C1626] hover:bg-[#0C1626] hover:text-[#D4B07B] transition scroll-right-btn" aria-label="Next products">
+        &rarr;
+      </button>
+    </div>
+  </div>
+
+  <!-- Product Slider Container -->
+  <div class="relative">
+    <div class="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-6 pt-2 product-slider-track" style="scrollbar-width: none; -ms-overflow-style: none;">
+      
+      <!-- Product 1 -->
+      <div class="min-w-[260px] sm:min-w-[280px] md:min-w-[300px] flex-shrink-0 snap-start">
+        {% render 'card-product', demo_title: "Royal Kundan Bangles Set", demo_price: "₹1,499", demo_compare: "₹2,999", demo_image: "https://images.unsplash.com/photo-1611591475571-124b616b6c4b?w=600&auto=format&fit=crop&q=80", demo_badge: "Dispatch within 24h" %}
+      </div>
+
+      <!-- Product 2 -->
+      <div class="min-w-[260px] sm:min-w-[280px] md:min-w-[300px] flex-shrink-0 snap-start">
+        {% render 'card-product', demo_title: "Personalized Rose Gold Couple Watch", demo_price: "₹2,299", demo_compare: "₹4,599", demo_image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600&auto=format&fit=crop&q=80", demo_badge: "Best Seller" %}
+      </div>
+
+      <!-- Product 3 -->
+      <div class="min-w-[260px] sm:min-w-[280px] md:min-w-[300px] flex-shrink-0 snap-start">
+        {% render 'card-product', demo_title: "Luxury Velvet Gift Hamper Box", demo_price: "₹1,899", demo_compare: "₹3,499", demo_image: "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=600&auto=format&fit=crop&q=80", demo_badge: "Free Gift" %}
+      </div>
+
+      <!-- Product 4 -->
+      <div class="min-w-[260px] sm:min-w-[280px] md:min-w-[300px] flex-shrink-0 snap-start">
+        {% render 'card-product', demo_title: "Zircon Diamond Solitaire Necklace", demo_price: "₹1,199", demo_compare: "₹2,499", demo_image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&auto=format&fit=crop&q=80", demo_badge: "Dispatch within 24h" %}
+      </div>
+
+      <!-- Product 5 -->
+      <div class="min-w-[260px] sm:min-w-[280px] md:min-w-[300px] flex-shrink-0 snap-start">
+        {% render 'card-product', demo_title: "Traditional Meenakari Jhumka Earrings", demo_price: "₹799", demo_compare: "₹1,599", demo_image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&auto=format&fit=crop&q=80", demo_badge: "Trending" %}
+      </div>
+
+      <!-- Product 6 -->
+      <div class="min-w-[260px] sm:min-w-[280px] md:min-w-[300px] flex-shrink-0 snap-start">
+        {% render 'card-product', demo_title: "Customized Photo Frame LED Lamp", demo_price: "₹1,299", demo_compare: "₹2,599", demo_image: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=600&auto=format&fit=crop&q=80", demo_badge: "Best Seller" %}
+      </div>
+
+      <!-- Product 7 -->
+      <div class="min-w-[260px] sm:min-w-[280px] md:min-w-[300px] flex-shrink-0 snap-start">
+        {% render 'card-product', demo_title: "Pearl Embellished Bridal Potli Bag", demo_price: "₹899", demo_compare: "₹1,799", demo_image: "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=600&auto=format&fit=crop&q=80", demo_badge: "Dispatch within 24h" %}
+      </div>
+
+      <!-- Product 8 -->
+      <div class="min-w-[260px] sm:min-w-[280px] md:min-w-[300px] flex-shrink-0 snap-start">
+        {% render 'card-product', demo_title: "Rose Gold Plated Evil Eye Bracelet", demo_price: "₹699", demo_compare: "₹1,399", demo_image: "https://images.unsplash.com/photo-1611591475571-124b616b6c4b?w=600&auto=format&fit=crop&q=80", demo_badge: "Gift Special" %}
+      </div>
+
+      <!-- Product 9 -->
+      <div class="min-w-[260px] sm:min-w-[280px] md:min-w-[300px] flex-shrink-0 snap-start">
+        {% render 'card-product', demo_title: "Antique Polki Choker Necklace Set", demo_price: "₹2,499", demo_compare: "₹4,999", demo_image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&auto=format&fit=crop&q=80", demo_badge: "Bridal Favorite" %}
+      </div>
+
+    </div>
+  </div>
+
+  <div class="text-center mt-12">
+    <a href="/collections/all" class="btn-primary">View All Viral Collection</a>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const track = document.querySelector('.product-slider-track');
+    const leftBtn = document.querySelector('.scroll-left-btn');
+    const rightBtn = document.querySelector('.scroll-right-btn');
+    if (track && leftBtn && rightBtn) {
+      leftBtn.addEventListener('click', () => {
+        track.scrollBy({ left: -320, behavior: 'smooth' });
+      });
+      rightBtn.addEventListener('click', () => {
+        track.scrollBy({ left: 320, behavior: 'smooth' });
+      });
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Featured collection slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Our Viral Collection"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Handcrafted luxury gifts and stunning accessories loved by 50,000+ happy customers."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured collection slider"
+    }
+  ]
+}
+{% schema %}

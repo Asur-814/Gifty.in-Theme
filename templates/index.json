@@ -1,0 +1,30 @@
+{
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar"
+    },
+    "header": {
+      "type": "header"
+    },
+    "featured-collection": {
+      "type": "featured-collection"
+    },
+    "collection-list": {
+      "type": "collection-list"
+    },
+    "collapsible-faq": {
+      "type": "collapsible-faq"
+    },
+    "footer": {
+      "type": "footer"
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header",
+    "featured-collection",
+    "collection-list",
+    "collapsible-faq",
+    "footer"
+  ]
+}

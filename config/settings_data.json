@@ -1,0 +1,25 @@
+{
+  "current": {
+    "colors_primary": "#0C1626",
+    "colors_accent": "#D4B07B",
+    "whatsapp_number": "+917390802311",
+    "announcement_text": "Dispatch within 24 hours across India | Free gifts on prepaid orders",
+    "sections": {
+      "announcement-bar": {
+        "type": "announcement-bar",
+        "settings": {
+          "bg_color": "#0C1626",
+          "text_color": "#D4B07B",
+          "show_marquee": true
+        }
+      },
+      "header": {
+        "type": "header",
+        "settings": {
+          "logo_text": "Gifty.in",
+          "sticky_header": true
+        }
+      }
+    }
+  }
+}

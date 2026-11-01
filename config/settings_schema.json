@@ -1,0 +1,33 @@
+[
+  {
+    "name": "Theme settings",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Brand Colors"
+      },
+      {
+        "type": "color",
+        "id": "colors_primary",
+        "label": "Primary Background",
+        "default": "#0C1626"
+      },
+      {
+        "type": "color",
+        "id": "colors_accent",
+        "label": "Accent Gold",
+        "default": "#D4B07B"
+      },
+      {
+        "type": "header",
+        "content": "Customer Support"
+      },
+      {
+        "type": "text",
+        "id": "whatsapp_number",
+        "label": "WhatsApp Phone Number",
+        "default": "+917390802311"
+      }
+    ]
+  }
+]

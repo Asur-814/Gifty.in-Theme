@@ -1,0 +1,126 @@
+/*
+  Gifty.in Shopify Theme - Base CSS
+  Design System: Deep Midnight Navy (#0C1626), Champagne Gold (#D4B07B), Warm Soft White (#FBFBF9)
+*/
+
+:root {
+  --color-primary-bg: #0C1626;
+  --color-accent-gold: #D4B07B;
+  --color-body-bg: #FBFBF9;
+  --color-card-bg: #FFFFFF;
+  --color-text-dark: #1B1B1B;
+  --color-text-light: #F5F0EB;
+  --color-border: #E5E0D8;
+  --radius-card: 16px;
+  --shadow-card: 0 4px 14px rgba(12, 22, 38, 0.06);
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  background-color: var(--color-body-bg);
+  color: var(--color-text-dark);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  margin-top: 0;
+}
+
+/* Card Styling */
+.gifty-card {
+  background: var(--color-card-bg);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gifty-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(12, 22, 38, 0.1);
+}
+
+/* Badges */
+.gifty-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 9999px;
+  border: 1px solid var(--color-accent-gold);
+  background-color: rgba(212, 176, 123, 0.1);
+  color: #8C6D3B;
+}
+
+.gifty-badge-dark {
+  background-color: var(--color-primary-bg);
+  color: var(--color-accent-gold);
+}
+
+/* Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  background-color: var(--color-primary-bg);
+  color: var(--color-text-light);
+  font-weight: 600;
+  border-radius: 9999px;
+  border: 1px solid var(--color-accent-gold);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #172946;
+  box-shadow: 0 4px 12px rgba(212, 176, 123, 0.2);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  background-color: var(--color-accent-gold);
+  color: #0C1626;
+  font-weight: 700;
+  border-radius: 9999px;
+  border: 1px solid var(--color-accent-gold);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #C39F69;
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: 200%;
+  animation: marquee 25s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
